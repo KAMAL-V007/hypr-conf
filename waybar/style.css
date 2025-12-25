@@ -1,0 +1,154 @@
+@import "../omarchy/current/theme/waybar.css";
+
+
+* {
+  /* background-color: @background; */
+  color: @foreground;
+
+  border: none;
+  font-family: 'CaskaydiaMono Nerd Font Propo';
+  font-size: 15px;
+}
+
+window#waybar {
+  background: transparent;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+
+window#waybar > box {
+    border-radius: 4px;
+    margin: 2px 2px 2px 2px;
+    background-color: alpha(@background, 0.8);
+    box-shadow: 1px 1px 1px 1px alpha(black, 0.0);
+}
+
+#window {
+  margin: 1;
+  padding: 3;
+  padding-top: 3px;
+  font-size: 9px;
+}
+
+.modules-left {
+  margin-left: 8px;
+  padding-top: 1px;
+}
+
+.modules-right {
+  margin-right: 8px;
+  padding-top: 1px;
+}
+
+.modules-center {
+  border-left: 1px solid alpha(@foreground, 0.2);
+  border-right: 1px solid alpha(@foreground, 0.2);
+  padding: 0 40px;
+  padding-top: 1px;
+}
+
+#workspaces {
+    padding: 0px;
+    margin: 0px;
+    margin-left: -6px;
+
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#window {
+  padding-left: 8px;
+  padding: 2px;
+}
+
+#custom-omarchy {
+font-size: 18px;
+padding: 2px 0px 0px;
+}
+
+#custom-mic.muted {
+  font-size: 14px;
+  color: @foreground; /* Red for muted */
+}
+
+#custom-mic.unmuted {
+  font-size: 14px;
+  color: @foreground; /* Default color */
+}
+
+#custom-mic,
+#hyprland-window,
+#tray,
+#cpu,
+#memory,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#idle_inhibitor,
+#custom-omarchy,
+#backlight,
+#custom-updatespacman,
+#custom-screenrecording-indicator,
+#custom-update {
+  min-width: 3px;
+  margin: 0 7.5px;
+}
+
+#custom-expand-icon {
+  margin-right: 7px;
+}
+
+tooltip {
+  padding: 5.5px;
+}
+
+
+#custom-update {
+  font-size: 10px;
+  margin: 2px;
+}
+
+#clock, #idle_inhibitor {
+  margin-left: 8.75px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#custom-screenrecording-indicator {
+  min-width: 12px;
+  margin-left: 8.75px;
+  font-size: 10px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #a55555;
+}
+
+tooltip {
+ padding: 5px;
+ background: @background;
+ font-size: 26px;
+ border: 3px solid alpha(@foreground, 0.64);
+ border-radius: 9px;
+ box-shadow: 1px 1px 3px 1px #131313;
+}
+#bluetooth.disabled, #bluetooth.off, #bluetooth.bluetooth-off {
+  color: @foreground;
+}
+
+tooltip label {
+    color: @foreground;
+}
