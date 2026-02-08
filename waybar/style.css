@@ -32,7 +32,7 @@ window#waybar > box {
 }
 
 .modules-left {
-  margin-left: 8px;
+  margin-left: 5px;
   padding-top: 1px;
 }
 
@@ -63,7 +63,7 @@ window#waybar > box {
 }
 
 #workspaces button.empty {
-  opacity: 0.5;
+  opacity: 9.5;
 }
 
 #window {
@@ -72,12 +72,12 @@ window#waybar > box {
 }
 
 #custom-omarchy {
-font-size: 18px;
+font-size: 19px;
 padding: 2px 0px 0px;
 }
 
 #custom-mic.muted {
-  font-size: 14px;
+  font-size: 13px;
   color: @foreground; /* Red for muted */
 }
 
@@ -120,7 +120,7 @@ tooltip {
 }
 
 #clock, #idle_inhibitor {
-  margin-left: 8.75px;
+  margin-left: 5px;
 }
 
 .hidden {
@@ -129,8 +129,9 @@ tooltip {
 
 #custom-screenrecording-indicator {
   min-width: 12px;
-  margin-left: 8.75px;
+  margin-left: 5px;
   font-size: 10px;
+  padding-bottom: 1px;
 }
 
 #custom-screenrecording-indicator.active {
@@ -151,4 +152,13 @@ tooltip {
 
 tooltip label {
     color: @foreground;
+}
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
 }
