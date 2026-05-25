@@ -1,16 +1,16 @@
 {
   "reload_style_on_change": true,
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
-  "spacing": -1,
+  "spacing": -2,
   "height": 10,
-  "width": 1268,
+  "width": 1600,
   //"margin": "2px 6px 2 3",
-  "margin": "2px 6px  2px",
+  "margin": "1px 6px  2px",
   "modules-left": [
     "custom/omarchy",
-    "hyprland/workspaces",
-    "hyprland/window"
+    "hyprland/workspaces"
+    // "hyprland/window"
   ],
   "signals": [
     {
@@ -18,19 +18,20 @@
       "interval": "once"
     }
   ],
-  "modules-rightmid": [
+  "    modules-rightmid": [
     "tray"
   ],
   "modules-center": [
     // "clock#calendar",
     "clock#calendar",
     "clock#time",
+    "custom/timer",
     "custom/updatespacman",
     // "idle_inhibitor",
     "custom/update",
     "custom/screenrecording-indicator"
   ],
-  "modules-right": [
+  "   modules-right": [
     "group/tray-expander",
     "backlight",
     "custom/updatespacman",
@@ -68,34 +69,34 @@
       "6": []
     }
   },
-  "hyprland/window": {
-    "format": "|  {class}!  |",
-    // "format": "  {class}  ",
-    "tooltip": false,
-    "max-length": 25,
-    "rewrite": {
-      " - ": "", // if no window is focused, a single dash is displayed, this removes it
-      "(.*?) - Chromium - chromium": "  $1 ",
-      "(.*chrome)...(.*)": "  $1 ",
-      "(.*) - Obsidian - .* - obsidian": "  $1 ",
-      "(.*nvim)...(.*)": "  $2 ",
-      "(.*code) - (.*)": " 󰨞 $1 ",
-      "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
-      "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
-      "(.*) - Spotify": "  $1 ",
-      "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
-      "(.*) - kitty": " 🐱🐱 $1 ",
-      "(.*) - Alacritty": "   $1 ",
-      "(.*) - BeeperTexts": " 󰻞  $1 ",
-      "(.*Discord)...(.*).. (.*)": "  $2 ",
-      "(.*) - org.gnome.Nautilus": " 󰣆 $1 ",
-      "(.*) - fish": "  [$1] ",
-      "(.*Steam)...(.*)": "  $1 ",
-      "(.*imv)...(.*).. (.*)": "  $2 ",
-      "OBS *. - (.*) - com.obsproject.Studio": "  $1" // not yet functional
-      // "nvim (.*) - com.mitchellh.ghostty": "  $1", // not being captured
-    }
-  },
+  // "hyprland/window": {
+  //   // "format": "| {initialTitle}",
+  //   // "format": "  {class}  ",
+  //   "tooltip": false,
+  //   "max-length": 25,
+  //   "rewrite": {
+  //     " - ": "", // if no window is focused, a single dash is displayed, this removes it
+  //     "(.*?) - Chromium - chromium": "  $1 ",
+  //     "(.*chrome)...(.*)": "  $1 ",
+  //     "(.*) - Obsidian - .* - obsidian": "  $1 ",
+  //     "(.*nvim)...(.*)": "  $2 ",
+  //     "(.*code) - (.*)": " 󰨞 $1 ",
+  //     "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
+  //     "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
+  //     "(.*) - Spotify": "  $1 ",
+  //     "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
+  //     "(.*) - kitty": " 🐱🐱 $1 ",
+  //     "(.*) - Alacritty": "   $1 ",
+  //     "(.*) - BeeperTexts": " 󰻞  $1 ",
+  //     "(.*Discord)...(.*).. (.*)": "  $2 ",
+  //     "(.*) - org.gnome.Nautilus": " 󰣆 $1 ",
+  //     "(.*) - fish": "  [$1] ",
+  //     "(.*Steam)...(.*)": "  $1 ",
+  //     "(.*imv)...(.*).. (.*)": "  $2 ",
+  //     "OBS *. - (.*) - com.obsproject.Studio": "  $1" // not yet functional
+  //     // "nvim (.*) - com.mitchellh.ghostty": "  $1", // not being captured
+  //   }
+  // },
   "custom/omarchy": {
     //  "format": "₹|",
     "format": "<span font='omarchy'>\ue900</span> ",
@@ -114,12 +115,13 @@
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "|{percent}% {icon}|",
+    "format": "       |{percent}% {icon}|",
     "tooltip": false,
     "format-icons": [
       "🌑",
       "🌘",
       "🌗",
+      "🌖",
       "🌖",
       "🌕"
     ]
@@ -207,6 +209,17 @@
       "on-scroll-down": "shift_down"
     }
   },
+  "custom/timer": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "/home/kamal/.config/waybar/scripts/timer.py status",
+    "on-click": "/home/kamal/.config/waybar/scripts/timer.py toggle",
+    "on-click-right": "/home/kamal/.config/waybar/scripts/timer.py reset",
+    "on-click-middle": "/home/kamal/.config/waybar/scripts/timer.py menu",
+    "on-scroll-up": "/home/kamal/.config/waybar/scripts/timer.py add 60",
+    "on-scroll-down": "/home/kamal/.config/waybar/scripts/timer.py add -60",
+    "tooltip": true
+  },
   // "idle_inhibitor": {
   //   "format": "{icon}",
   //   "format-icons": {
@@ -214,18 +227,25 @@
   //     "deactivated": ""
   //   }
   // },
+  "custom/weather": {
+    "exec": "$OMARCHY_PATH/default/waybar/weather.sh",
+    "return-type": "json",
+    "interval": 60,
+    "tooltip": false,
+    "on-click": "notify-send -u low \"$(omarchy-weather-status)\""
+  },
   "network": {
     "format-icons": [
-      "󰤯  |",
-      "󰤟  |",
-      "󰤢  |",
-      "󰤥  |",
-      "󰤨  |"
+      "󰤯 ",
+      "󰤟 ",
+      "󰤢 ",
+      "󰤥 ",
+      "󰤨 "
     ],
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
-    "format-disconnected": "󰤮  |",
+    "format-disconnected": "󰤮 ",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)",
     "tooltip-format-ethernet": "Connected",
     "tooltip-format-disconnected": "Disconnected",
@@ -268,7 +288,8 @@
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 5,
-    // "on-click": "omarchy-menu power",
+    "on-click": "omarchy-menu power",
+    "on-click-right": "notify-send -u low \"$(omarchy-battery-status)\"",
     "states": {
       "warning": 20,
       "critical": 10
@@ -277,7 +298,7 @@
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
-    "format-connected": "󰂱",
+    "format-connected": "󰂱 ",
     "format-on": "",
     "format-off": "󰂲",
     "tooltip-format": "Devices connected: {num_connections}",
@@ -292,14 +313,14 @@
     "on-click-right": "pamixer -t",
     //"tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
-    "format-muted": "",
+    "format-muted": "|  ",
     "format-icons": {
-      "headphone": "",
-      "headset": "",
+      "headphone": "|  ",
+      "headset": "|  ",
       "default": [
-        " ",
-        " ",
-        " "
+        "|  ",
+        "|  ",
+        "|  "
       ]
     }
   },
@@ -338,7 +359,7 @@
     "custom/screenrecording-indicator"
   ],
   "custom/screenrecording-indicator": {
-    "on-click": "omarchy-cmd-screenrecord",
+    "on-click": "omarchy-capture-screenrecording",
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
     "return-type": "json"

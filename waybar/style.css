@@ -6,7 +6,7 @@
   color: @foreground;
 
   border: none;
-  font-family: 'JetBrainsMono Nerd Font';
+  font-family: 'Adwaita Mono';
   font-size: 15px;
 }
 
@@ -78,7 +78,7 @@ padding: 5px 0px 0px;
 
 #custom-mic.muted {
   font-size: 13px;
-  color: #ffffff; /* White for muted */
+  color: @foreground; /* White for muted */
 }
 
 #custom-mic.unmuted {
@@ -100,6 +100,7 @@ padding: 5px 0px 0px;
 #backlight,
 #custom-updatespacman,
 #clock,
+#custom-timer,
 #custom-update {
   min-width: 3px;
   margin: 0 7.5px;
@@ -172,7 +173,7 @@ tooltip label {
     padding: 15px;
     margin-top: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    font-family: 'JetBrainsMono Nerd Font';
+    font-family: 'Adwaita Mono';
     font-size: 18px;
     color: @foreground;
 }
@@ -220,3 +221,39 @@ tooltip label {
   font-size: 14px
 }
 
+
+#custom-weather {
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+}
+
+#custom-weather.unavailable {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#custom-timer {
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#custom-timer.running {
+  color: #ffcc66;
+}
+
+#custom-timer.paused {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#custom-timer.finished {
+  color: #ff6699;
+  animation: timer-blink 1s steps(2, start) infinite;
+}
+
+@keyframes timer-blink {
+  50% {
+    color: transparent;
+  }
+}
