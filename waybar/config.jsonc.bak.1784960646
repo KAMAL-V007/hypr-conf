@@ -2,9 +2,9 @@
   "reload_style_on_change": true,
   "layer": "bottom",
   "position": "top",
-  "spacing": 0,
-  "height": 6,
-  "width": 1400,
+  "spacing": 2,
+  "height": 10,
+  "width": 1100,
   //"margin": "2px 6px 2 3",
   "margin": "3px 6px  4px",
   "modules-left": [
@@ -155,16 +155,6 @@
     "interval": 2,
     "format": " {percentage}%|",
     "on-click": "omarchy-launch-or-focus-tui btop"
-  },
-  "custom/gpu": {
-    // Icon in format (same pattern as cpu/memory) so glyphs render reliably.
-    // {text} = "UTIL% VRAMG" from scripts/gpu-status.sh
-    "format": "󰢮  {text}",
-    "return-type": "json",
-    "interval": 3,
-    "exec": "/home/kamal/.config/waybar/scripts/gpu-status.sh",
-    "on-click": "omarchy-launch-or-focus-tui nvtop",
-    "tooltip": true
   },
   /*
   "clock": {
@@ -364,7 +354,6 @@
     "custom/mic",
     "cpu",
     "memory",
-    "custom/gpu",
     "battery", // or whatever else
     "custom/notification-silencing-indicator",
     "custom/idle-indicator",

@@ -89,7 +89,6 @@ padding: 5px 0px 0px;
 #custom-mic,
 #hyprland-window,
 #cpu,
-#custom-gpu,
 #memory,
 #battery,
 #network,
@@ -105,28 +104,6 @@ padding: 5px 0px 0px;
 #mpris {
   min-width: 3px;
   margin: 0 7.5px;
-}
-
-/* Keep GPU module readable next to cpu/memory */
-#custom-gpu {
-  min-width: 0;
-}
-
-#custom-gpu.gpu-high {
-  color: #ff6699;
-}
-
-#custom-gpu.gpu-mid {
-  color: #ffcc66;
-}
-
-#custom-gpu.gpu-suspended {
-  color: alpha(@foreground, 0.3);
-}
-
-#custom-gpu.gpu-error {
-  color: #ff6699;
-  opacity: 0.7;
 }
 
 #tray {
