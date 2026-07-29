@@ -7,7 +7,7 @@
 
   border: none;
   font-family: 'Adwaita Mono', 'JetBrainsMono Nerd Font';
-  font-size: 14px;
+  font-size: 15px;
 }
 
 window#waybar {
@@ -18,10 +18,11 @@ window#waybar {
 
 
 window#waybar > box {
-    border-radius: 4px;
+    border-radius: 8px; /* Slightly rounder for modern look */
     margin: 2px 2px 2px 2px;
     background-color: alpha(@background, 0.8);
-    box-shadow: 1px 1px 1px 1px alpha(black, 0.0);
+    box-shadow: 0 2px 5px alpha(black, 0.3);
+    border: 1px solid alpha(@foreground, 0.15); /* Border for the entire waybar */
 }
 
 #window {
@@ -62,8 +63,19 @@ window#waybar > box {
   min-width: 9px;
 }
 
-#workspaces button.empty {
-  opacity: 9.5;
+#workspaces button label {
+  color: @foreground; /* Occupied/Used workspaces: Light in color */
+  font-family: 'Adwaita Mono', 'JetBrainsMono Nerd Font';
+  font-size: 14px;
+}
+
+#workspaces button.empty label {
+  color: alpha(@foreground, 0.3); /* Unused/Empty workspaces: Dim/Dark in color */
+}
+
+#workspaces button.active label {
+  color: #89b4fa; /* Active workspace: Bright in color */
+  text-shadow: 0 0 5px alpha(#89b4fa, 0.4);
 }
 
 #window {
@@ -72,7 +84,7 @@ window#waybar > box {
 }
 
 #custom-omarchy {
-font-size: 15px;
+font-size: 16px;
 padding: 5px 0px 0px;
 }
 
@@ -107,6 +119,20 @@ padding: 5px 0px 0px;
   margin: 0 7.5px;
 }
 
+#group-hardware,
+#group-sys {
+  background: alpha(@foreground, 0.08);
+  border-radius: 12px;
+  padding: 0 6px;
+  margin: 0 4px;
+  /* Removed border in favor of a clean background */
+}
+
+#group-hardware > *,
+#group-sys > * {
+  margin: 0 3px;
+}
+
 /* Keep GPU module readable next to cpu/memory */
 #custom-gpu {
   min-width: 0;
@@ -130,10 +156,11 @@ padding: 5px 0px 0px;
 }
 
 #tray {
-  padding: 0 10px;
-  border-radius: 8px;
+  padding: 0 6px;
+  border-radius: 12px;
   background: alpha(@foreground, 0.08);
-  margin: 2px 5px;
+  margin: 0 4px;
+  /* Removed the hard border for a cleaner look */
 }
 
 #custom-expand-icon {
@@ -158,6 +185,15 @@ padding: 0px 0px 0px;
 
 #clock, #idle_inhibitor {
   margin-left: 5px;
+}
+
+#custom-uptime {
+  color: #89b4fa;
+  background-color: alpha(#89b4fa, 0.15);
+  border-radius: 6px;
+  padding: 0 10px;
+  margin: 0 5px;
+  font-weight: bold;
 }
 
 .hidden {
@@ -284,26 +320,21 @@ tooltip label {
 
 #mpris {
   padding: 0 12px;
-  border-radius: 8px;
-  background: alpha(@foreground, 0.08);
   margin: 2px 5px;
   font-weight: bold;
   transition: all 0.2s ease-in-out;
 }
 
 #mpris:hover {
-  background: alpha(@foreground, 0.15);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 #mpris.playing {
   color: #a6e3a1;
-  background: alpha(#a6e3a1, 0.1);
 }
 
 #mpris.paused {
   color: #9399b2;
-  background: alpha(@foreground, 0.05);
 }
 
 
