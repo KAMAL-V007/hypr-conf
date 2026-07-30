@@ -183,8 +183,26 @@ tooltip {
 padding: 0px 0px 0px;
 }
 
-#clock, #idle_inhibitor {
+#clock.time {
+  color: #89b4fa;
+  background-color: alpha(#89b4fa, 0.15);
+  border-radius: 6px;
+  padding: 0 10px;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+#idle_inhibitor {
   margin-left: 5px;
+}
+
+#custom-unemployment {
+  color: #fab387;
+  background-color: alpha(#fab387, 0.15);
+  border-radius: 6px;
+  padding: 0 10px;
+  margin: 0 5px;
+  font-weight: bold;
 }
 
 #custom-uptime {
@@ -300,21 +318,33 @@ tooltip label {
 }
 
 #custom-timer {
+  color: #11111b;
+  background-color: #fab387;
+  border-radius: 12px;
+  padding: 0 15px;
+  margin: 0 5px;
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 15px;
   font-weight: bold;
+  box-shadow: 0 0 5px alpha(#fab387, 0.4);
 }
 
 #custom-timer.running {
-  color: #ffcc66;
+  color: #11111b;
+  background-color: #a6e3a1;
+  box-shadow: 0 0 5px alpha(#a6e3a1, 0.4);
 }
 
 #custom-timer.paused {
-  color: rgba(255, 255, 255, 0.4);
+  color: @foreground;
+  background-color: alpha(@foreground, 0.2);
+  box-shadow: none;
 }
 
 #custom-timer.finished {
-  color: #ff6699;
+  color: #11111b;
+  background-color: #f38ba8;
+  box-shadow: 0 0 5px alpha(#f38ba8, 0.5);
   animation: timer-blink 1s steps(2, start) infinite;
 }
 

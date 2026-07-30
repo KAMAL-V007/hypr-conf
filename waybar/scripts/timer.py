@@ -388,23 +388,22 @@ def cmd_menu():
     fuzzel_theme = [
         "fuzzel",
         "-d",
-        "-w", "20",                     # Compact width (20 characters)
-        "-f", "JetBrainsMono Nerd Font:size=10",   # Premium JetBrains Mono font at size 10
-        "-a", "top",                    # Anchor to top center (directly under center modules)
-        "--y-margin=38",                # Vertical offset of 38px to clear Waybar
-        "--minimal-lines",              # Auto-shrink vertical height to items
-        "-b", "000000ed",               # Almost pure black (93% opacity)
-        "-t", "e0e0e0ff",               # Crisp silver-white text
-        "--prompt-color=ffffffbb",      # Subtle prompt white
-        "-m", "ffffffff",               # Pure white match highlighting
-        "-s", "ffffffff",               # Pure white selection background
-        "-S", "000000ff",               # Pure black text for selected item
-        "-M", "000000ff",               # Pure black text for selected match
-        "-B", "2",                      # Thin border
-        "-r", "10",                     # Rounded corners
-        "-C", "333333ff",               # Dark gray border
-        "-x", "12",                     # Compact horizontal padding
-        "-y", "8"                       # Compact vertical padding
+        "-w", "20",
+        "-f", "JetBrainsMono Nerd Font:weight=bold:size=11",
+        "-a", "center",
+        "--minimal-lines",
+        "-b", "00000099",               # Pure black base with 60% opacity
+        "-t", "cdd6f4ff",               # Text color
+        "--prompt-color=89b4faff",      # Blue prompt color
+        "-m", "f38ba8ff",               # Match color (Red)
+        "-s", "313244ff",               # Selection background
+        "-S", "89b4faff",               # Selected text color (Blue)
+        "-M", "f38ba8ff",               # Selected match color
+        "-B", "2",                      # Border width
+        "-r", "12",                     # Border radius (Rounded corners)
+        "-C", "cba6f7aa",               # Border color
+        "-x", "14",                     # Compact horizontal padding
+        "-y", "14"                      # Compact vertical padding
     ]
     
     try:

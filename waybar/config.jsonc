@@ -23,6 +23,7 @@
   "modules-center": [
     "clock#calendar",
     "clock#time",
+    "custom/unemployment",
     "custom/uptime",
     "custom/timer",
     "custom/updatespacman",
@@ -106,7 +107,7 @@
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
   "custom/mic": {
-    "format": "{text} |",
+    "format": "{text} ",
     "return-type": "json",
     "interval": 1,
     "exec": "/home/kamal/.config/waybar/scripts/mic-status.sh",
@@ -171,9 +172,15 @@
     }
   },
   "custom/uptime": {
-    "exec": "uptime -p | sed -r 's/up //; s/ day[s]?,?/d/g; s/ hour[s]?,?/h/g; s/ minute[s]?,?/m/g'",
+    "exec": "~/.config/waybar/scripts/daily_sot.py",
     "interval": 60,
     "format": "󰁞 {}",
+    "tooltip": false
+  },
+  "custom/unemployment": {
+    "exec": "echo $(( ($(date +%s) - $(date -d '2026-06-27' +%s)) / 86400 ))",
+    "interval": 86400,
+    "format": "󰜎  {}d",
     "tooltip": false
   },
   "custom/timer": {
@@ -196,11 +203,12 @@
   },
   "network": {
     "format-icons": [
-      "󰤯 ",
-      "󰤟 ",
-      "󰤢 ",
-      "󰤥 ",
-      "󰤨 "
+      "|󰤯 ",
+      "|󰤟 ",
+      "|󰤢 ",
+      "|󰤢 ",
+      "|󰤥 ",
+      "|󰤨 "
     ],
     "format": "{icon}",
     "format-wifi": "{icon}",
@@ -268,7 +276,7 @@
     }
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}{volume}%",
     "on-click": "omarchy-launch-audio",
     "on-click-right": "pamixer -t",
     //"tooltip-format": "Playing at {volume}%",
