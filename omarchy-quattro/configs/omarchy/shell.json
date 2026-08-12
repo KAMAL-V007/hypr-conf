@@ -1,0 +1,92 @@
+{
+  "bar": {
+    "centerAnchor": "omarchy.clock",
+    "layout": {
+      "center": [
+        {
+          "id": "omarchy.indicators"
+        },
+        {
+          "id": "kamal.screentime"
+        },
+        {
+          "id": "omarchy.clock",
+          "birthYear": 2005,
+          "format": "yyyy-MM-dd HH:mm",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "lifeExpectancy": 85,
+          "verticalFormat": "HH\n—\nmm"
+        },
+        {
+          "id": "omarchy.keyboard-layout"
+        },
+        {
+          "id": "omarchy.system-update"
+        },
+        {
+          "id": "kamal.unemployed-counter"
+        },
+        {
+          "id": "omarchy.weather"
+        },
+        {
+          "id": "omarchy.tailscale"
+        }
+      ],
+      "left": [
+        {
+          "id": "omarchy.menu"
+        },
+        {
+          "id": "omarchy.workspaces"
+        },
+        {
+          "id": "kamal.active-window"
+        }
+      ],
+      "right": [
+        {
+          "id": "omarchy.tray"
+        },
+        {
+          "id": "b.omadoro"
+        },
+        {
+          "id": "stappmus.activity-monitor",
+          "openExpanded": true
+        },
+        {
+          "id": "djjeane.docker-monitor"
+        },
+        {
+          "id": "omarchy.bluetooth"
+        },
+        {
+          "id": "omarchy.audio"
+        },
+        {
+          "id": "omarchy.microphone"
+        },
+        {
+          "id": "omarchy.network"
+        },
+        {
+          "id": "omarchy.power",
+          "showPercentage": true
+        }
+      ]
+    },
+    "position": "bottom",
+    "transparent": true
+  },
+  "idle": {
+    "lock": 300,
+    "screensaver": 150
+  },
+  "plugins": [
+    {
+      "id": "mirador"
+    }
+  ],
+  "version": 1
+}

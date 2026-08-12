@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "kamal.unemployed-counter",
+  "name": "Unemployed Counter",
+  "version": "1.0.0",
+  "author": "Omarchy",
+  "description": "Days since June 27th",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Counter.qml"
+  },
+  "barWidget": {
+    "displayName": "Unemployed Counter",
+    "description": "Days since June 27th",
+    "category": "Status",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
